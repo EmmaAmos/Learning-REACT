@@ -15,4 +15,3 @@ function WelcomMess (){
 
 
 export default Message;
-export default WelcomMess;
