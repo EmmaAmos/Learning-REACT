@@ -3,15 +3,10 @@ const husband = 'Pablo';
 
 
 function Message(){
-    return <h1>Hello There!</h1>;
-    
+    if (creator)
+        return <h1>Hello There! {creator} and {husband}, this message is dynamically made!</h1>;
+    return <h1>Creator Unavailable</h1>
 }
-
-function WelcomMess (){
-    <h2>{creator} and {husband}, this message is dynamically made!</h2>;
-}
-
-
 
 
 export default Message;
