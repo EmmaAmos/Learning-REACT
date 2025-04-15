@@ -11,17 +11,17 @@ function ListGroup() {
     'Paris'
   ];
 
-  items.map(item => <li>{item}</li>);
+  const getMessage = () =>{
+    return items.length === 0 ? <p>No Items Found</p> : null;;
+  }
 
+//This takes the list of 'items' and converts that into a <li> element.
     return(
       <Fragment>
         <h1>Testing H1</h1>
+        {getMessage()}
         <ul className="list-group">
-          <li className="list-group-item">An item</li>
-          <li className="list-group-item">A second item</li>
-          <li className="list-group-item">A third item</li>
-          <li className="list-group-item">A fourth item</li>
-          <li className="list-group-item">And a fifth one</li>
+            {items.map(item => <li key={item}>{item}</li>)}
         </ul>
       </Fragment>
     );
