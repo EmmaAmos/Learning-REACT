@@ -1,40 +1,37 @@
 import { Fragment, useState } from "react";
 
+interface Props {
+  items: string[];
+  heading: string; // Changed heading to a single string
 
-function ListGroup() {
+  onSelectItem: (item: string) => void;
+}
 
-  let items =[
-    'New York',
-    'San Fan',
-    'Toykyo',
-    'London',
-    'Paris'
-  ];
-
-  //Hook
+function ListGroup({ items, heading, onSelectItem }: Props) {
   const [selectedIndex, setSelectedIndex] = useState(-1);
 
-
-//This takes the list of 'items' and converts that into a <li> element.
-// The items {} renders items dynamticlly, including the error message if nothing is found.
-
-    return(
-        <Fragment>
-          <h1>Testing H1</h1>
-          {items.length === 0 && <p>No items</p>}
-          <ul className="list-group">
-            {items.map((item, index) => ( // Look here! We're getting the index
-              <li
-                className={selectedIndex === index ? 'list-group-item active' : 'list-group-item'}
-                key={item}
-                onClick={() => {setSelectedIndex(index)}}
-              >
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Fragment>
-      );
+  return (
+    <Fragment>
+      <h1>{heading}</h1>
+      {items.length === 0 && <p>No items</p>}
+      <ul className="list-group">
+        {items.map((item, index) => (
+          <li
+            className={
+              selectedIndex === index ? "list-group-item active" : "list-group-item"
+            }
+            key={item}
+            onClick={() => {
+              setSelectedIndex(index);
+              onSelectItem(item);
+            }}
+          >
+            {item}
+          </li>
+        ))}
+      </ul>
+    </Fragment>
+  );
 }
 
 export default ListGroup;

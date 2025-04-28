@@ -2,9 +2,21 @@ import ListGroup from "./components/ListGroup";
 //import Message from './Message'
 
 function App() {
+  let items =[
+    'New York',
+    'San Fan',
+    'Toykyo',
+    'London',
+    'Paris'
+  ];
+
+  const handleSelectedItem = (item: string) => {
+    console.log(item);
+  }
+
   return (
     <div>
-      <ListGroup></ListGroup>
+      <ListGroup items={items} heading="Cities" onSelectItem={handleSelectedItem}></ListGroup>
     </div>
   );
 }
