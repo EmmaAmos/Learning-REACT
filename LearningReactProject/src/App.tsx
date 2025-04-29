@@ -1,3 +1,4 @@
+/*
 import ListGroup from "./components/ListGroup";
 //import Message from './Message'
 
@@ -20,5 +21,19 @@ function App() {
     </div>
   );
 }
+
+export default App;
+*/
+
+import Alert from "./components/Alert";
+
+function App(){
+  return(
+    <div>
+      <Alert text="Hello World"></Alert>
+    </div>
+  )
+};
+
 
 export default App;
